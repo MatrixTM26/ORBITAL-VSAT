@@ -1,7 +1,7 @@
 <div align="center">
     <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=ORBITAL%20VSAT&fontSize=40&fontAlignY=35&animation=twinkling"/>
     <h4 align="center">ORBITAL VSAT DDOS</h4>
-    <h5 align="center">By XTM26</h5>
+    <h5 align="center">By MatrixTM26</h5>
 </div>
 
 ---
@@ -142,9 +142,8 @@
     <h2 align="left"><img src="https://j.top4top.io/p_3591zhz0p1.gif" width="40" height="40">&nbsp;Installation & Usage</h2>
 </div>
 
-
 ```💻 shell command
-git clone https://github.com/XTM26/ORBITAL-VSAT.git
+git clone https://github.com/MatrixTM26/ORBITAL-VSAT.git
 cd ORBITAL-VSAT
 pip install -r requirements.txt --break-system-packages
 sudo python3 orbitalvsat.py
@@ -252,8 +251,8 @@ python3 orbitalvsat.py
 <div align="left">
     <h2 align="left">Tools Information</h2>
     <p align="left">
-        <li align="left"><strong>Author:</strong> XTM26</li>
-        <li align="left"><strong>GitHub:</strong> XTM26</li>
+        <li align="left"><strong>Author:</strong> MatrixTM26</li>
+        <li align="left"><strong>GitHub:</strong> MatrixTM26</li>
         <li align="left"><strong>Version:</strong> VSAT 2.0</li>
         <li align="left"><strong>Release:</strong> 2026, May 02</li>
     </p>
@@ -262,7 +261,6 @@ python3 orbitalvsat.py
 ---
 
 <div align="left">
-    <h2 align="left">Follow XTM26 & Let's be a friend</h2>
+    <h2 align="left">Follow MatrixTM26 & Let's be a friend</h2>
     <p align="center"><img src="https://i.top4top.io/p_3591fg50i1.gif" width="200" height="200"></p>
 </div>
-
