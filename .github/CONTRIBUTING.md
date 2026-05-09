@@ -1,4 +1,4 @@
-### Contributing Guidelines
+## Contributing Guidelines
 
 #### Thank you for your interest in contributing to this project. This document defines standards, workflows, and expectations for all contributors. It is designed to be reusable across different repositories.
 
@@ -47,8 +47,8 @@
 1. Clone your fork:
 
 ```bash
-    git clone https://github.com/MatrixTM26/<repository-name>.git
-    cd <repository-name>
+    git clone https://github.com/MatrixTM26/ORBITAL-VSAT.git
+    cd ORBITAL-VSAT
 ```
 
 1. Create a branch:
@@ -213,8 +213,14 @@ Benefits:
 ### 16. Contact Me
 
 - [GitHub](https://github.com/MatrixTM26)
-- [Email](mailto:anonymous999tom7@gmail.com)
+- [Email](mailto:anonymous999tm@gmail.com)
+- [Instagram](https://instagram.com/xtm26.xp)
 
 ---
 
-#### By contributing, you agree to follow all guidelines in this document.
+> [!IMPORTANT]
+> By contributing, you agree to follow all guidelines in this document.
+
+<p align="center">
+    &copy; 2023-2026 MatrixTM26
+</p>
