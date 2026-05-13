@@ -249,18 +249,23 @@ python3 orbitalvsat.py
 ---
 
 <div align="left">
-    <h2 align="left">Tools Information</h2>
-    <p align="left">
-        <li align="left"><strong>Author:</strong> MatrixTM26</li>
-        <li align="left"><strong>GitHub:</strong> MatrixTM26</li>
-        <li align="left"><strong>Version:</strong> VSAT 2.0</li>
-        <li align="left"><strong>Release:</strong> 2026, May 02</li>
-    </p>
+
+## Support Me
+
+<p align="left">
+    If this project helps, you can support me here:
+</p>
+
+<a href="https://ko-fi.com/matriMatrixTM26" target="_blank">
+  <img src="https://ko-fi.com/img/githubbutton_sm.svg" height="20" alt="Support me on Ko-fi" />
+</a>
+
+<a href="https://trakteer.id/matriMatrixTM26">
+  <img src="https://img.shields.io/badge/Support-Trakteer-orange" height="20" alt="Support me on Trakteer"/>
+</a>
+
 </div>
 
 ---
 
-<div align="left">
-    <h2 align="left">Follow MatrixTM26 & Let's be a friend</h2>
-    <p align="center"><img src="https://i.top4top.io/p_3591fg50i1.gif" width="200" height="200"></p>
-</div>
+<p align="center">&copy; 2023-2026 MatrixTM26</p>
