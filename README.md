@@ -9,6 +9,7 @@
 <div align="left">
 
 > [!IMPORTANT]
+
 > Any damage or destructions you do using this script is at your own risk. I will not be held responsible for any damage or destructions thats you do.
 
     <p align="left">
