@@ -9,10 +9,9 @@
 <div align="left">
 
 > [!IMPORTANT]
-
 > Any damage or destructions you do using this script is at your own risk. I will not be held responsible for any damage or destructions thats you do.
 
-    <p align="left">
+<p align="left">
         Denial of Service ( DoS ) or Distributed Denial of Service ( DDOS ) attacks pose a significant threat to many parties worldwide due to the potential for significant losses. Many countries consider them illegal and violate electronic security laws, so be cautious when using them. Ensure you have explicit permission to use this script on your target.
     </p>
 </div>
