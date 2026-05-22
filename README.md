@@ -1,7 +1,5 @@
 # ORBITAL VSAT
 
-# ORBITAL VOLUMETRIC SHOCKWAVES ARTILLERY
-
 Advanced Multi-Layer Network Stress Testing Framework
 
 ---
