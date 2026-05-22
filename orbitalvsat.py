@@ -18,7 +18,7 @@ try:
     import sys
     import threading
     import time
-    from lib.core.StdIO import Clear, StrObject
+    from lib.core.StdIO import Clear, Logging
     from lib.core.ANSIColor import Color
     from lib.config.Logo import Banner, Helper
     from concurrent.futures import ThreadPoolExecutor
@@ -153,29 +153,29 @@ class OrbitalVSAT:
         try:
             self.IP = socket.gethostbyname(self.Host)
         except Exception:
-            StrObject.Typewriter(
+            Logging.Typewriter(
                 f"{Color.orange}[{Color.red} ERROR {Color.orange}]: {Color.white} CANNOT RESOLVE: {Color.red} {self.Host} {Color.reset}"
             )
             raise
         self.UserAgents = self.ImportFiles("UA.txt", self.DefaultUA)
-        StrObject.Typewriter(
+        Logging.Typewriter(
             f"{Color.white}[{Color.cyan} INFO {Color.white}] {Color.cyan} TARGET: {Color.white} {self.Target} {Color.reset}"
         )
-        StrObject.Typewriter(
+        Logging.Typewriter(
             f"{Color.white}[{Color.cyan} INFO {Color.white}] {Color.cyan} IP ADDRESS: {Color.white} {self.IP}:{self.Port} {Color.reset}"
         )
-        StrObject.Typewriter(
+        Logging.Typewriter(
             f"{Color.white}[{Color.cyan} INFO {Color.white}] {Color.cyan} METHODS: {Color.white} {self.Method} {Color.reset}"
         )
-        StrObject.Typewriter(
+        Logging.Typewriter(
             f"{Color.white}[{Color.cyan} INFO {Color.white}] {Color.cyan} PROTOCOL: {Color.white} {self.Protocol.upper()} {Color.reset}"
         )
-        StrObject.Typewriter(
+        Logging.Typewriter(
             f"{Color.white}[{Color.cyan} INFO {Color.white}] {Color.cyan} JA3 Fingerprint: {Color.white} {self.JAProfiles} {Color.reset}"
         )
 
         if self.ClusterMode:
-            StrObject.Typewriter(
+            Logging.Typewriter(
                 f"{Color.white}[{Color.cyan} INFO {Color.white}] {Color.cyan} CLUSTER: {Color.white} {self.Processes} {Color.cyan} CORES x: {Color.white} {self.Processes * self.Threads} {Color.darkgreen} THREADS. {Color.reset}"
             )
 
@@ -763,7 +763,7 @@ class OrbitalVSAT:
 
     """Cluster & Stats"""
 
-    def ClusterProcess(self, ProcessID):
+    def ClusterProcessing(self, ProcessID):
         """Cluster Process"""
         MethodOptions = {
             "GET": self.HTTPExecutor,
@@ -801,7 +801,7 @@ class OrbitalVSAT:
             while self.Running.value:
                 sleep(1)
 
-    def StatsExecutor(self):
+    def ProcessMonitor(self):
         """Stats Display"""
         LastCount = 0
         LastBytes = 0
@@ -826,21 +826,21 @@ class OrbitalVSAT:
         except Exception:
             return
         self.Running.value = 1
-        StrObject.Typewriter(f"\n{Color.darkgreen} {'=' * 100}")
-        StrObject.Typewriter(
+        Logging.Typewriter(f"\n{Color.darkgreen} {'=' * 100}")
+        Logging.Typewriter(
             f"{Color.cyan}[{Color.red} ORBITAL VSAT {Color.cyan}] {Color.cyan} STARTING ATTACK {Color.orange} {self.Method} {Color.reset}"
         )
-        StrObject.Typewriter(f"{Color.darkgreen} {'=' * 100}\n")
-        StatsThread = threading.Thread(target=self.StatsExecutor, daemon=True)
+        Logging.Typewriter(f"{Color.darkgreen} {'=' * 100}\n")
+        StatsThread = threading.Thread(target=self.ProcessMonitor, daemon=True)
         StatsThread.start()
         if self.ClusterMode:
             processes = []
             for i in range(self.Processes):
-                p = MP.Process(target=self.ClusterProcess, args=(i,))
+                p = MP.Process(target=self.ClusterProcessing, args=(i,))
                 p.start()
                 processes.append(p)
                 sleep(0.02)
-            StrObject.Typewriter(
+            Logging.Typewriter(
                 f"{Color.cyan}[{Color.red} ORBITAL VSAT {Color.cyan}] {Color.cyan} CLUSTER: {Color.orange} {self.Processes * self.Threads} {Color.orange} THREADS ACTIVE!\n {Color.reset}"
             )
             try:
@@ -889,7 +889,7 @@ class OrbitalVSAT:
                 for f in futures:
                     f.result()
 
-                StrObject.Typewriter(
+                Logging.Typewriter(
                     f"{Color.cyan}[{Color.red} ORBITAL VSAT {Color.cyan}] {Color.cyan} RUNNING: {Color.orange} {self.Threads} {Color.orange} THREADS!\n {Color.reset}"
                 )
                 try:
@@ -901,21 +901,21 @@ class OrbitalVSAT:
         with self.StatsLock:
             finalCount = self.RequestsCount.value
             finalBytes = self.BytesSent.value
-        StrObject.Typewriter(
+        Logging.Typewriter(
             f"{Color.cyan}[{Color.red} ORBITAL VSAT {Color.cyan}] {Color.cyan} FINAL RESULTS {Color.reset}"
         )
-        StrObject.Typewriter(f"{Color.darkgreen} {'=' * 100}")
-        StrObject.Typewriter(
+        Logging.Typewriter(f"{Color.darkgreen} {'=' * 100}")
+        Logging.Typewriter(
             f"{Color.white}[{Color.cyan} INFO {Color.white}] {Color.cyan} TOTAL REQUESTS: {Color.white} {finalCount:,} {Color.reset}"
         )
-        StrObject.Typewriter(
+        Logging.Typewriter(
             f"{Color.white}[{Color.cyan} INFO {Color.white}] {Color.cyan} TOTAL SENT: {Color.white} {finalBytes / 1048576:.2f} {Color.cyan} Mb {Color.reset}"
         )
         if self.Duration > 0:
-            StrObject.Typewriter(
+            Logging.Typewriter(
                 f"{Color.white}[{Color.cyan} INFO {Color.white}] {Color.cyan} AVG RPS: {Color.white} {finalCount / self.Duration:.0f} {Color.reset}"
             )
-            StrObject.Typewriter(
+            Logging.Typewriter(
                 f"{Color.white}[{Color.cyan} INFO {Color.white}] {Color.cyan} AVG Bandwidth: {Color.white} {(finalBytes * 8) / (self.Duration * 1048576):.2f} {Color.cyan} Mbps {Color.reset}"
             )
 
@@ -938,7 +938,7 @@ def Main():
             )
         elif choice == "n":
             sys.exit(0)
-        StrObject.Typewriter(f"{Color.red} ORBITAL CONFIGURATION{Color.reset}")
+        Logging.Typewriter(f"{Color.red} ORBITAL CONFIGURATION{Color.reset}")
         VSAT = OrbitalVSAT()
         VSAT.Target = input(
             f"{Color.white}[{Color.orange} SET {Color.white}] {Color.darkgreen} TARGET {Color.white} > {Color.cyan}"
@@ -1004,12 +1004,12 @@ def Main():
         VSAT.ClusterMode = cluster == "y"
         VSAT.Start()
     except KeyboardInterrupt:
-        StrObject.Typewriter(
+        Logging.Typewriter(
             f"{Color.red}[{Color.orange} INFO {Color.red}] {Color.orange} KEYBOARD INTERRUPTED."
         )
         sys.exit(0)
     except Exception as e:
-        StrObject.Typewriter(
+        Logging.Typewriter(
             f"{Color.orange}[{Color.red} ERROR {Color.orange}]: {Color.red} {e} {Color.reset}"
         )
 

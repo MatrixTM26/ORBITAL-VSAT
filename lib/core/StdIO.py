@@ -9,7 +9,7 @@ class Clear:
     os.system("cls" if os.name == "nt" else "clear")
 
 
-class StrObject:
+class Logging:
     def Typewriter(text):
         for c in text:
             stdout.write(c)
