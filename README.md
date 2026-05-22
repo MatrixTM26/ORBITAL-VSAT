@@ -1,20 +1,19 @@
 # ORBITAL VSAT
 
-Advanced Multi-Layer Network Stress Testing Framework
+### Advanced Multi-Layer Network Stress Testing Framework
 
 ---
 
-![Stars](https://img.shields.io/github/stars/MatrixTM26/ORBITAL-VSAT?style=for-the-badge)
-![License](https://img.shields.io/github/license/MatrixTM26/ORBITAL-VSAT?style=for-the-badge)
-![Python](https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python)
-![HTTP2](https://img.shields.io/badge/HTTP%2F2-Supported-purple?style=for-the-badge)
-![HTTP3](https://img.shields.io/badge/HTTP%2F3-Experimental-red?style=for-the-badge)
+![License](https://img.shields.io/github/license/MatrixTM26/ORBITAL-VSAT?style=for-the-badge&color=red&labelColor=000000)
+![Python](https://img.shields.io/badge/Python-3.10+-000000?style=for-the-badge&logo=python&logoColor=ff0000)
+![HTTP2](https://img.shields.io/badge/HTTP%2F2-Supported-000000?style=for-the-badge&logo=protocolsdotio&logoColor=ff0000)
+![HTTP3](https://img.shields.io/badge/HTTP%2F3-Experimental-000000?style=for-the-badge&logo=cloudflare&logoColor=ff0000)
 
 ---
 
 # Overview
 
-ORBITAL VSAT (VOLUMETRIC SHOCKWAVES ARTILLERY) is an advanced multi-layer network traffic generation framework designed for:
+ORBITAL VSAT (**VOLUMETRIC SHOCKWAVES ARTILLERY**) is an advanced multi-layer network traffic generation framework designed for:
 
 - Network stress testing
 - Infrastructure benchmarking
@@ -31,25 +30,23 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 # Features
 
-# Layer 7 Application Engine
+## <img src="https://cdn.simpleicons.org/icloud/ff0000" width="18"> Layer 7 Application Engine
 
-## Supported Methods
+### Supported Methods
 
-| Method  | Supported |
-| ------- | --------- |
-| GET     | YES       |
-| POST    | YES       |
-| PUT     | YES       |
-| PATCH   | YES       |
-| DELETE  | YES       |
-| OPTIONS | YES       |
-| TRACE   | YES       |
-| CONNECT | YES       |
-| RANDOM  | YES       |
+| Method  | Status |
+| ------- | ------ |
+| GET     | YES |
+| POST    | YES |
+| PUT     | YES |
+| PATCH   | YES |
+| DELETE  | YES |
+| OPTIONS | YES |
+| TRACE   | YES |
+| CONNECT | YES |
+| RANDOM  | YES |
 
----
-
-## HTTP Features
+### HTTP Features
 
 - HTTP/1.1 Keep-Alive Engine
 - HTTP/2 Multiplexing
@@ -68,26 +65,24 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 ---
 
-# Layer 4 Transport Engine
+## <img src="https://cdn.simpleicons.org/cisco/ff0000" width="18"> Layer 4 Transport Engine
 
-## Supported Methods
+### Supported Methods
 
-| Method   | Description                  |
-| -------- | ---------------------------- |
-| TCP      | TCP Connection Simulation    |
-| SYN      | SYN Packet Simulation        |
-| ACK      | ACK Packet Simulation        |
-| RST      | RST Packet Simulation        |
-| FIN      | FIN Packet Simulation        |
-| XMAS     | FIN + PSH + URG              |
-| UDP      | UDP Datagram Generation      |
-| UDP-FRAG | UDP Fragmentation            |
-| DNS-AMP  | DNS Amplification Simulation |
-| NTP-AMP  | NTP Amplification Simulation |
+| Method | Description |
+|--------|-------------|
+| TCP | TCP Connection Simulation |
+| SYN | SYN Packet Simulation |
+| ACK | ACK Packet Simulation |
+| RST | RST Packet Simulation |
+| FIN | FIN Packet Simulation |
+| XMAS | FIN + PSH + URG |
+| UDP | UDP Datagram Generation |
+| UDP-FRAG | UDP Fragmentation |
+| DNS-AMP | DNS Amplification Simulation |
+| NTP-AMP | NTP Amplification Simulation |
 
----
-
-## Layer 4 Features
+### Layer 4 Features
 
 - Raw TCP Packet Crafting
 - TCP Flag Manipulation
@@ -100,17 +95,15 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 ---
 
-# Layer 3 Network Engine
+## <img src="https://cdn.simpleicons.org/internetexplorer/ff0000" width="18"> Layer 3 Network Engine
 
-## Supported Methods
+### Supported Methods
 
-| Method | Description                 |
-| ------ | --------------------------- |
-| ICMP   | ICMP Echo Packet Simulation |
+| Method | Description |
+|--------|-------------|
+| ICMP | ICMP Echo Packet Simulation |
 
----
-
-## Layer 3 Features
+### Layer 3 Features
 
 - Raw ICMP Packet Generation
 - Custom Checksum Calculation
@@ -119,21 +112,19 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 ---
 
-# TLS JA3 Fingerprinting
+# <img src="https://cdn.simpleicons.org/letsencrypt/ff0000" width="18"> TLS JA3 Fingerprinting
 
 ORBITAL VSAT supports TLS JA3 fingerprint simulation profiles.
 
-## Available Profiles
+### Available Profiles
 
-| Profile | Browser         |
-| ------- | --------------- |
-| chrome  | Google Chrome   |
+| Profile | Browser |
+|---------|----------|
+| chrome | Google Chrome |
 | firefox | Mozilla Firefox |
-| safari  | Apple Safari    |
+| safari | Apple Safari |
 
----
-
-## JA3 Features
+### JA3 Features
 
 - Cipher Suite Ordering
 - TLS Curve Selection
@@ -153,11 +144,9 @@ The architecture separates workloads into multiple independent traffic engines r
 
 ---
 
-## Main Components
+# Main Components
 
-### Main Process
-
-Responsible for:
+## <img src="https://cdn.simpleicons.org/gnometerminal/ff0000" width="18"> Main Process
 
 - Runtime Initialization
 - Target Parsing
@@ -167,9 +156,7 @@ Responsible for:
 
 ---
 
-### Cluster Mode
-
-Cluster Mode enables:
+## <img src="https://cdn.simpleicons.org/kubernetes/ff0000" width="18"> Cluster Mode
 
 - Multiprocessing CPU Scaling
 - Parallel Worker Execution
@@ -178,9 +165,7 @@ Cluster Mode enables:
 
 ---
 
-### Single Process Mode
-
-Single Process Mode uses:
+## <img src="https://cdn.simpleicons.org/buffer/ff0000" width="18"> Single Process Mode
 
 - ThreadPoolExecutor
 - Thread-Based Workers
@@ -189,9 +174,7 @@ Single Process Mode uses:
 
 ---
 
-### Shared Memory System
-
-Used for:
+## <img src="https://cdn.simpleicons.org/databricks/ff0000" width="18"> Shared Memory System
 
 - Request Counters
 - Throughput Monitoring
@@ -200,9 +183,7 @@ Used for:
 
 ---
 
-### Traffic Executors
-
-Traffic Executors handle:
+## <img src="https://cdn.simpleicons.org/proxmox/ff0000" width="18"> Traffic Executors
 
 - Task Distribution
 - Protocol Execution
@@ -212,406 +193,26 @@ Traffic Executors handle:
 
 ---
 
-# Layer 7 Application Engine
-
-Supported Components:
-
-- HTTP/1.1 Engine
-- HTTP/2 Engine
-- HTTP/2 Ping Frames
-- HTTP/3 Experimental Engine
-- Slowloris
-- Slow POST
-- TLS JA3 Fingerprint Engine
-
----
-
-# Layer 4 Transport Engine
-
-Supported Components:
-
-- TCP Engine
-- SYN Simulation
-- ACK Simulation
-- FIN Simulation
-- RST Simulation
-- XMAS Simulation
-- UDP Engine
-- UDP Fragmentation
-- DNS Amplification
-- NTP Amplification
-
----
-
-# Layer 3 Network Engine
-
-Supported Components:
-
-- ICMP Engine
-- Raw Socket Handler
-- Packet Builder
-- Checksum Calculator
-
----
-
-# Supported Protocols
-
-| Protocol | Status       |
-| -------- | ------------ |
-| HTTP/1.1 | Stable       |
-| HTTP/2   | Stable       |
-| HTTP/3   | Experimental |
-| TCP      | Stable       |
-| UDP      | Stable       |
-| ICMP     | Stable       |
-| TLS 1.2  | Stable       |
-| TLS 1.3  | Stable       |
-
----
-
-# Traffic Vectors
-
-# HTTP Vectors
-
-- Keep-Alive Persistence
-- Stream Multiplexing
-- Header Randomization
-- Dynamic Cache Bypass
-- HTTP/2 Priority Abuse
-- HTTP/2 PING Frames
-- Slow Header Transmission
-- Slow POST Transmission
-- Large Payload Requests
-
----
-
-# TCP Vectors
-
-- SYN Simulation
-- ACK Simulation
-- FIN Simulation
-- RST Simulation
-- XMAS Simulation
-
----
-
-# UDP Vectors
-
-- UDP Fragmentation
-- Reflection Simulation
-- Amplification Simulation
-- Large Datagram Transmission
-
----
-
-# Statistics Monitoring
-
-Real-time statistics include:
-
-- Requests Per Second (RPS)
-- Total Requests
-- Throughput Mbps
-- Active Threads
-- Active Methods
-- Runtime Information
-- Bandwidth Monitoring
-
----
-
-# Multiprocessing Cluster System
-
-Cluster Mode enables:
-
-- Multi-Core CPU Scaling
-- Parallel Traffic Execution
-- Shared Multiprocessing Counters
-- Concurrent Traffic Generation
-
----
-
-# Project Structure
-
-```text
-ORBITAL-VSAT/
-│
-├── orbitalvsat.py
-├── requirements.txt
-├── UA.txt
-├── README.md
-│
-├── public/
-│   └── internal.png
-│
-├── lib/
-│   ├── core/
-│   │   ├── ANSIColor.py
-│   │   ├── StdIO.py
-│   │
-│   ├── config/
-│   │   ├── Logo.py
-│   │
-│   └── utils/
-│
-└── assets/
-```
-
----
-
-# Installation
-
-# Clone Repository
-
-```bash
-git clone https://github.com/MatrixTM26/ORBITAL-VSAT
-cd ORBITAL-VSAT
-```
-
----
-
-# Install Dependencies
-
-```bash
-pip3 install -r requirements.txt
-```
-
----
-
-# Manual Dependency Installation
-
-```bash
-pip install h2 aioquic
-```
-
----
-
-# Requirements
-
-| Component        | Recommended |
-| ---------------- | ----------- |
-| Python           | 3.10+       |
-| Operating System | Linux       |
-| CPU              | Multi-Core  |
-| RAM              | 4GB+        |
-
----
-
-# Raw Socket Permission
-
-Some Layer 3 and Layer 4 methods require elevated privileges.
-
-```bash
-sudo python3 orbitalvsat.py
-```
-
----
-
-# Usage
-
-# Start ORBITAL VSAT
-
-```bash
-python3 orbitalvsat.py
-```
-
----
-
-# Configuration
-
-| Parameter    | Description               |
-| ------------ | ------------------------- |
-| TARGET       | Hostname or IP            |
-| METHODS      | Traffic Method            |
-| PROTOCOL     | h1 / h2 / h3              |
-| JA3 PROFILE  | chrome / firefox / safari |
-| THREADS      | Worker Count              |
-| DURATION     | Runtime Duration          |
-| CLUSTER MODE | Multiprocessing Mode      |
-
----
-
-# Example Usage
-
-# HTTP/1.1 GET
-
-```text
-TARGET      -> https://example.com
-METHODS     -> GET
-PROTOCOL    -> h1
-THREADS     -> 500
-DURATION    -> 60
-```
-
----
-
-# HTTP/2 POST
-
-```text
-TARGET      -> https://example.com
-METHODS     -> H2-POST
-PROTOCOL    -> h2
-JA3 PROFILE -> chrome
-```
-
----
-
-# HTTP/2 Ping
-
-```text
-METHODS -> H2-PING
-```
-
----
-
-# Slowloris
-
-```text
-METHODS -> SLOWLORIS
-```
-
----
-
-# TCP Transport
-
-```text
-METHODS -> TCP
-```
-
----
-
-# UDP Fragmentation
-
-```text
-METHODS -> UDP-FRAG
-```
-
----
-
-# ICMP Simulation
-
-```text
-METHODS -> ICMP
-```
-
----
-
-# Performance Optimizations
-
-## Internal Optimizations
-
-- TCP_NODELAY Sockets
-- Socket Keep-Alive
-- Socket Reuse
-- Batched Request Sending
-- Shared Multiprocessing Counters
-- Concurrent Thread Execution
-- Large Buffer Transmission
-- Persistent Connections
-
----
-
-# Linux Optimization
-
-# Increase File Descriptors
-
-```bash
-ulimit -n 1048576
-```
-
----
-
-# Kernel Network Optimization
-
-```bash
-sysctl -w net.ipv4.tcp_syncookies=1
-sysctl -w net.ipv4.ip_local_port_range="1024 65535"
-sysctl -w net.core.somaxconn=65535
-```
-
----
-
-# Future Improvements
-
-## Planned Features
-
-- Full QUIC Implementation
-- Advanced TLS Realism
-- GREASE Support
-- Browser TLS Emulation
-- Dynamic JA3 Randomization
-- Adaptive Packet Scheduling
-- Async Networking Engine
-- HTTP/3 Optimization
-- Proxy Rotation Support
-- Dynamic Payload Mutation
-
----
-
-# IMPORTANT NOTE
-
-## Legal Warning
-
-This software is intended strictly for:
-
-- Authorized security research
-- Defensive laboratory testing
-- Infrastructure benchmarking
-- Protocol analysis
-- Controlled simulation environments
-
-Unauthorized usage against systems, services, or networks without explicit authorization may violate local and international laws.
-
-The developer assumes no responsibility for misuse, damages, service interruptions, or illegal activity caused by this software.
-
-Use responsibly and only within environments you own or are authorized to test.
-
----
-
-# Performance Notes
-
-## Recommended Usage
-
-For optimal performance:
-
-- Use Linux environments
-- Use multi-core processors
-- Enable Cluster Mode
-- Increase file descriptor limits
-- Reduce unnecessary background processes
-
----
-
 # Credits
 
 ## AUTHOR
 
-![GitHub](https://img.shields.io/badge/GitHub-MatrixTM26-181717?style=for-the-badge&logo=github)
+[![AUTHOR](https://img.shields.io/badge/MatrixTM26-000000?style=for-the-badge&logo=github&logoColor=ff0000)](https://github.com/MatrixTM26)
+
+---
 
 # License
 
-![License](https://img.shields.io/github/license/MatrixTM26/ORBITAL-VSAT?style=for-the-badge)
+![License](https://img.shields.io/github/license/MatrixTM26/ORBITAL-VSAT?style=for-the-badge&color=red&labelColor=000000)
 
 ---
 
-# Disclaimer
+# Support Me
 
-> [!CAUTION]
-> This repository is provided for educational and defensive security research purposes only.
-> Users are solely responsible for ensuring compliance with all applicable laws and regulations within their jurisdiction.
-
----
-
-<div align="left">
-
-## Support Me
-
-If this project helps, you can support me here:
-
-[![Ko-fi](https://img.shields.io/badge/KO--FI-000000?style=for-the-badge&logo=kofi&logoColor=ff5f5f)](https://ko-fi.com/MatrixTM26)
-[![Trakteer](https://img.shields.io/badge/TRAKTEER-000000?style=for-the-badge&logo=buymeacoffee&logoColor=ff4444)](https://trakteer.id/MatrixTM26)
-[![PayPal](https://img.shields.io/badge/PAYPAL-000000?style=for-the-badge&logo=paypal&logoColor=00a2ff)](https://paypal.me/TeukuMaulana)
-
-</div>
+[![Ko-fi](https://img.shields.io/badge/KO--FI-000000?style=for-the-badge&logo=kofi&logoColor=ff0000)](https://ko-fi.com/MatrixTM26)
+[![Trakteer](https://img.shields.io/badge/TRAKTEER-000000?style=for-the-badge&logo=buymeacoffee&logoColor=ff0000)](https://trakteer.id/MatrixTM26)
+[![PayPal](https://img.shields.io/badge/PAYPAL-000000?style=for-the-badge&logo=paypal&logoColor=ff0000)](https://paypal.me/TeukuMaulana)
 
 ---
 
-<p align="center">&copy; 2023-2026 MatrixTM26</p>
+<p align="center"><b>&copy; 2023-2026 MatrixTM26</b></p>
