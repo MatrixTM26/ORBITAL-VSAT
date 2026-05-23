@@ -1,10 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
-"""JA3 Profiles"""
 
 JA3Profiles = {
-    "chrome": {
-        "ciphers": [
+    "Chrome": {
+        "Ciphers": [
             0x1301,
             0x1302,
             0x1303,
@@ -15,10 +14,10 @@ JA3Profiles = {
             0xCCA9,
             0xCCA8,
         ],
-        "curves": [29, 23, 24],
+        "Curves": [29, 23, 24],
     },
-    "firefox": {
-        "ciphers": [
+    "Firefox": {
+        "Ciphers": [
             0x1301,
             0x1302,
             0x1303,
@@ -29,10 +28,10 @@ JA3Profiles = {
             0xC02C,
             0xC030,
         ],
-        "curves": [29, 23, 24, 25],
+        "Curves": [29, 23, 24, 25],
     },
-    "safari": {
-        "ciphers": [
+    "Safari": {
+        "Ciphers": [
             0x1301,
             0x1302,
             0x1303,
@@ -43,6 +42,6 @@ JA3Profiles = {
             0xCCA9,
             0xCCA8,
         ],
-        "curves": [29, 23, 24],
+        "Curves": [29, 23, 24],
     },
 }

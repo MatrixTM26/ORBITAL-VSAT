@@ -36,15 +36,15 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 | Method  | Status |
 | ------- | ------ |
-| GET     | YES |
-| POST    | YES |
-| PUT     | YES |
-| PATCH   | YES |
-| DELETE  | YES |
-| OPTIONS | YES |
-| TRACE   | YES |
-| CONNECT | YES |
-| RANDOM  | YES |
+| GET     | YES    |
+| POST    | YES    |
+| PUT     | YES    |
+| PATCH   | YES    |
+| DELETE  | YES    |
+| OPTIONS | YES    |
+| TRACE   | YES    |
+| CONNECT | YES    |
+| RANDOM  | YES    |
 
 ### HTTP Features
 
@@ -69,18 +69,18 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 ### Supported Methods
 
-| Method | Description |
-|--------|-------------|
-| TCP | TCP Connection Simulation |
-| SYN | SYN Packet Simulation |
-| ACK | ACK Packet Simulation |
-| RST | RST Packet Simulation |
-| FIN | FIN Packet Simulation |
-| XMAS | FIN + PSH + URG |
-| UDP | UDP Datagram Generation |
-| UDP-FRAG | UDP Fragmentation |
-| DNS-AMP | DNS Amplification Simulation |
-| NTP-AMP | NTP Amplification Simulation |
+| Method   | Description                  |
+| -------- | ---------------------------- |
+| TCP      | TCP Connection Simulation    |
+| SYN      | SYN Packet Simulation        |
+| ACK      | ACK Packet Simulation        |
+| RST      | RST Packet Simulation        |
+| FIN      | FIN Packet Simulation        |
+| XMAS     | FIN + PSH + URG              |
+| UDP      | UDP Datagram Generation      |
+| UDP-FRAG | UDP Fragmentation            |
+| DNS-AMP  | DNS Amplification Simulation |
+| NTP-AMP  | NTP Amplification Simulation |
 
 ### Layer 4 Features
 
@@ -99,9 +99,9 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 ### Supported Methods
 
-| Method | Description |
-|--------|-------------|
-| ICMP | ICMP Echo Packet Simulation |
+| Method | Description                 |
+| ------ | --------------------------- |
+| ICMP   | ICMP Echo Packet Simulation |
 
 ### Layer 3 Features
 
@@ -118,11 +118,11 @@ ORBITAL VSAT supports TLS JA3 fingerprint simulation profiles.
 
 ### Available Profiles
 
-| Profile | Browser |
-|---------|----------|
-| chrome | Google Chrome |
+| Profile | Browser         |
+| ------- | --------------- |
+| chrome  | Google Chrome   |
 | firefox | Mozilla Firefox |
-| safari | Apple Safari |
+| safari  | Apple Safari    |
 
 ### JA3 Features
 

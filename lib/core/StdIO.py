@@ -1,18 +1,20 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
+import os
 from sys import stdout
 from time import sleep
-import os
 
 
-class Clear:
+def Clear():
     os.system("cls" if os.name == "nt" else "clear")
 
 
 class Logging:
-    def Typewriter(text):
-        for c in text:
-            stdout.write(c)
+    @staticmethod
+    def Typewriter(text, delay=0.001):
+        for char in text:
+            stdout.write(char)
             stdout.flush()
-            sleep(0.0002)
-        print()
+            sleep(delay)
+        stdout.write("\n")
+        stdout.flush()
