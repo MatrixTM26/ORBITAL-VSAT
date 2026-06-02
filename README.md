@@ -4,10 +4,11 @@
 
 ---
 
-![License](https://img.shields.io/github/license/MatrixTM26/ORBITAL-VSAT?style=for-the-badge&color=red&labelColor=000000)
-![Python](https://img.shields.io/badge/Python-3.10+-000000?style=for-the-badge&logo=python&logoColor=ff0000)
-![HTTP2](https://img.shields.io/badge/HTTP%2F2-Supported-000000?style=for-the-badge&logo=protocolsdotio&logoColor=ff0000)
-![HTTP3](https://img.shields.io/badge/HTTP%2F3-Experimental-000000?style=for-the-badge&logo=cloudflare&logoColor=ff0000)
+![Python](https://img.shields.io/badge/Python-000000?style=for-the-badge&logo=python&logoColor=e7f400&labelColor=000000&color=03001a)
+![AGPL](https://img.shields.io/badge/AGPL-v3-000000?style=for-the-badge&logo=gnu&logoColor=ffffff&labelColor=000000&color=03001a)
+![Red Teaming](https://img.shields.io/badge/RED%20TEAMING-000000?style=for-the-badge&logo=keepassxc&logoColor=ff0000&labelColor=000000&color=03001a)
+![Cyber Security](https://img.shields.io/badge/CYBER%20SECURITY-000000?style=for-the-badge&logo=socket&logoColor=009ceb&labelColor=000000&color=03001a)
+![Networking](https://img.shields.io/badge/Networking-000000?style=for-the-badge&logo=cloudflare&logoColor=26ff7d&labelColor=000000&color=03001a)
 
 ---
 
