@@ -197,13 +197,14 @@ The architecture separates workloads into multiple independent traffic engines r
 ## <img src="https://cdn.simpleicons.org/github/ff0000" width="18"> Credit
 
 - **Author:** [@MatrixTM26](https://github.com/MatrixTM26)
+- **License:** [AGPL-V3](./LICENSE)
 
 ## <img src="https://cdn.simpleicons.org/githubsponsors/ff0000" width="18"> Support Me
 
-[![Ko-fi](https://img.shields.io/badge/KO--FI-000000?style=for-the-badge&logo=kofi&logoColor=ff0000)](https://ko-fi.com/MatrixTM26)
-[![Trakteer](https://img.shields.io/badge/TRAKTEER-000000?style=for-the-badge&logo=buymeacoffee&logoColor=ff0000)](https://trakteer.id/MatrixTM26)
-[![PayPal](https://img.shields.io/badge/PAYPAL-000000?style=for-the-badge&logo=paypal&logoColor=ff0000)](https://paypal.me/TeukuMaulana)
+[![Ko-fi](https://img.shields.io/badge/KO--FI-000000?style=for-the-badge&logo=kofi&logoColor=fff707)](https://ko-fi.com/MatrixTM26)
+[![Trakteer](https://img.shields.io/badge/TRAKTEER-000000?style=for-the-badge&logo=buymeacoffee&logoColor=ff6a6a)](https://trakteer.id/MatrixTM26)
+[![PayPal](https://img.shields.io/badge/PAYPAL-000000?style=for-the-badge&logo=paypal&logoColor=0000ff)](https://paypal.me/TeukuMaulana)
 
 ---
 
-<p align="center">Copyright &copy;2023-2026 MatrixTM26 • All Rights Reserved</p>
+<p align="center">Copyright &copy;2023-2026 MatrixTM26 &middot; All Rights Reserved</p>
