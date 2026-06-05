@@ -1,4 +1,4 @@
-# ORBITAL VSAT
+# VSAT DDOS
 
 ### Advanced Multi-Layer Network Stress Testing Framework
 
@@ -14,7 +14,7 @@
 
 # Overview
 
-ORBITAL VSAT (**VOLUMETRIC SHOCKWAVES ARTILLERY**) is an advanced multi-layer network traffic generation framework designed for:
+VSAT (**VOLUMETRIC SOCKET ARTILLERY**) is an advanced multi-layer network traffic generation framework designed for:
 
 - Network stress testing
 - Infrastructure benchmarking
@@ -115,7 +115,7 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 # <img src="https://cdn.simpleicons.org/letsencrypt/ff0000" width="18"> TLS JA3 Fingerprinting
 
-ORBITAL VSAT supports TLS JA3 fingerprint simulation profiles.
+VSAT also supports TLS JA3 fingerprint simulation profiles.
 
 ### Available Profiles
 
@@ -139,7 +139,7 @@ ORBITAL VSAT supports TLS JA3 fingerprint simulation profiles.
 
 ![Internal Architecture](public/internal.png)
 
-ORBITAL VSAT uses a high-concurrency multiprocessing architecture designed for protocol-level traffic generation and scalable execution across Layer 3, Layer 4, and Layer 7 environments.
+VSAT uses a high-concurrency multiprocessing architecture designed for protocol-level traffic generation and scalable execution across Layer 3, Layer 4, and Layer 7 environments.
 
 The architecture separates workloads into multiple independent traffic engines responsible for different network layers and transport protocols.
 
