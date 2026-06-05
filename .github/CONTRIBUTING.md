@@ -47,7 +47,7 @@
 1. Clone your fork:
 
 ```bash
-    git clone https://github.com/MatrixTM26/ORBITAL-VSAT.git
+    git clone https://github.com/MatrixTM26/VSAT.git
     cd ORBITAL-VSAT
 ```
 

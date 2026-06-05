@@ -1,4 +1,4 @@
-<h2 align="center">ORBITAL-VSAT DDOS Changelogs</h2>
+<h2 align="center">VSAT DDOS Changelogs</h2>
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-ORBITAL-VSAT is a network load testing tool designed for authorized stress testing, network capacity analysis, and security research purposes. This tool is intended for security professionals and network administrators conducting authorized testing on systems they own or have explicit written authorization to test.
+VSAT is a network load testing tool designed for authorized stress testing, network capacity analysis, and security research purposes. This tool is intended for security professionals and network administrators conducting authorized testing on systems they own or have explicit written authorization to test.
 
 ---
 
@@ -10,11 +10,11 @@ ORBITAL-VSAT is a network load testing tool designed for authorized stress testi
 
 Security updates and vulnerability patches are provided for the following versions:
 
-| Version | Supported          | Notes                    |
-| ------- | ------------------ | ----------------------- |
-| Latest  | :white_check_mark: | Active development      |
-| 1.x     | :white_check_mark: | Stable release          |
-| < 1.0   | :x:                | No longer maintained    |
+| Version | Supported          | Notes                |
+| ------- | ------------------ | -------------------- |
+| Latest  | :white_check_mark: | Active development   |
+| 1.x     | :white_check_mark: | Stable release       |
+| < 1.0   | :x:                | No longer maintained |
 
 ---
 
@@ -22,7 +22,7 @@ Security updates and vulnerability patches are provided for the following versio
 
 ### **Important: DO NOT Disclose Vulnerabilities Publicly**
 
-If you discover a security vulnerability in ORBITAL-VSAT:
+If you discover a security vulnerability in VSAT:
 
 1. **DO NOT** open a public GitHub issue
 2. **DO NOT** post vulnerability details on social media or public forums
@@ -31,6 +31,7 @@ If you discover a security vulnerability in ORBITAL-VSAT:
 ### Information to Include in Your Report
 
 Please provide:
+
 - Detailed description of the vulnerability
 - Steps to reproduce the issue
 - Potential impact and severity assessment
@@ -52,7 +53,7 @@ Please provide:
 
 ## Responsible Disclosure Guidelines
 
-ORBITAL-VSAT follows responsible disclosure practices:
+VSAT follows responsible disclosure practices:
 
 ### For Security Researchers:
 
@@ -79,20 +80,20 @@ ORBITAL-VSAT follows responsible disclosure practices:
 This project is designed and intended for:
 
 - **Authorized Load Testing**
-  - Testing network capacity and performance on systems you own
-  - Testing with explicit written authorization from system owners
-  - Professional network assessments under contract
+    - Testing network capacity and performance on systems you own
+    - Testing with explicit written authorization from system owners
+    - Professional network assessments under contract
 
 - **Network Security Research**
-  - Academic and institutional network research
-  - Network resilience and capacity analysis in controlled environments
-  - Defense mechanism development and testing
+    - Academic and institutional network research
+    - Network resilience and capacity analysis in controlled environments
+    - Defense mechanism development and testing
 
 - **Educational Purposes**
-  - Learning about network load testing methodologies
-  - Understanding network behavior under stress
-  - Training authorized network and security professionals
-  - Capture The Flag (CTF) competitions and training exercises
+    - Learning about network load testing methodologies
+    - Understanding network behavior under stress
+    - Training authorized network and security professionals
+    - Capture The Flag (CTF) competitions and training exercises
 
 ---
 
@@ -101,18 +102,18 @@ This project is designed and intended for:
 This project is **NOT** intended for and **MUST NOT** be used for:
 
 - **Denial of Service (DoS/DDoS) Attacks**
-  - Launching attacks against systems without authorization
-  - Disrupting services you do not own or have authority over
-  - Extortion through service disruption
+    - Launching attacks against systems without authorization
+    - Disrupting services you do not own or have authority over
+    - Extortion through service disruption
 
 - **Unauthorized Testing**
-  - Testing networks without explicit written authorization
-  - Disrupting critical infrastructure or services
+    - Testing networks without explicit written authorization
+    - Disrupting critical infrastructure or services
 
 - **Illegal Activities**
-  - Any activities that violate local, national, or international laws
-  - Cybercriminal operations
-  - Financial fraud or extortion
+    - Any activities that violate local, national, or international laws
+    - Cybercriminal operations
+    - Financial fraud or extortion
 
 ---
 
@@ -120,9 +121,9 @@ This project is **NOT** intended for and **MUST NOT** be used for:
 
 ### **LIMITATION OF LIABILITY**
 
-ORBITAL-VSAT is provided "as is" without warranty of any kind, either expressed or implied.
+VSAT is provided "as is" without warranty of any kind, either expressed or implied.
 
-**The authors and maintainers of ORBITAL-VSAT are NOT responsible for:**
+**The authors and maintainers of VSAT are NOT responsible for:**
 
 1. Any damage, data loss, or service disruption caused by the use of this tool
 2. Misuse of this project for unauthorized or illegal purposes
@@ -131,12 +132,12 @@ ORBITAL-VSAT is provided "as is" without warranty of any kind, either expressed 
 
 ### **USER RESPONSIBILITY**
 
-**By downloading, installing, or using ORBITAL-VSAT, you acknowledge and agree that:**
+**By downloading, installing, or using VSAT, you acknowledge and agree that:**
 
 1. **You are solely responsible** for all activities and consequences of using this software
 2. **You will use this tool only on networks:**
-   - That you own and have complete authority over, OR
-   - That you have explicit written authorization to test from the network owner
+    - That you own and have complete authority over, OR
+    - That you have explicit written authorization to test from the network owner
 3. **You understand** that unauthorized network testing is illegal
 4. **You will comply** with all applicable laws, regulations, and organizational policies
 5. **You hold harmless** the authors, maintainers, and contributors from any liability
@@ -156,7 +157,7 @@ The use of this project may be subject to local, national, and international law
 
 ### **AUTHORIZATION REQUIREMENT**
 
-Before using ORBITAL-VSAT for any testing:
+Before using VSAT for any testing:
 
 - **Obtain written authorization** from the network owner
 - **Document the scope** of authorized testing
@@ -167,7 +168,7 @@ Before using ORBITAL-VSAT for any testing:
 
 ## Security Best Practices for Users
 
-### When Deploying ORBITAL-VSAT:
+### When Deploying VSAT:
 
 1. **Isolated Network**: Deploy only on networks you own or have authorization for
 2. **Test Planning**: Plan testing windows to avoid disrupting production systems
@@ -190,6 +191,7 @@ Before using ORBITAL-VSAT for any testing:
 ### Attribution Policy
 
 Security researchers who responsibly report vulnerabilities may be credited as follows:
+
 - In security advisories (with permission)
 - In release notes (with permission)
 - As contributors in the repository (upon request)

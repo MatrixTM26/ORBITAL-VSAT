@@ -13,6 +13,7 @@ from lib.core.Executor import Executor
 try:
     import h2.config
     import h2.connection
+
     HasH2 = True
 except ImportError:
     HasH2 = False
@@ -22,12 +23,13 @@ try:
     from aioquic.asyncio.client import connect
     from aioquic.h3.connection import H3_ALPN
     from aioquic.quic.configuration import QuicConfiguration
+
     HasH3 = True
 except ImportError:
     HasH3 = False
 
 
-class OrbitalVSAT:
+class VSATMain:
     def __init__(self):
         self.Target = None
         self.Method = "POST"
@@ -122,7 +124,7 @@ class OrbitalVSAT:
             self.Setup()
         except Exception:
             return
-        
+
         Config = {
             "IP": self.IP,
             "Port": self.Port,
@@ -143,7 +145,7 @@ class OrbitalVSAT:
             "ClusterMode": self.ClusterMode,
             "Processes": self.Processes,
         }
-        
+
         ExecutorInstance = Executor(Config)
         ExecutorInstance.Execute()
 
@@ -166,15 +168,15 @@ def Main():
             )
         elif Choice == "n":
             sys.exit(0)
-        
-        Logging.Typewriter(f"{Color.Red} ORBITAL CONFIGURATION{Color.Reset}")
-        VSAT = OrbitalVSAT()
+
+        Logging.Typewriter(f"{Color.Red} VSAT CONFIGURATION{Color.Reset}")
+        VSAT = VSATMain()
         VSAT.Target = input(
             f"{Color.White}[{Color.Orange} SET {Color.White}] {Color.DarkGreen} TARGET {Color.White} > {Color.Cyan}"
         ).strip()
         if not VSAT.Target:
             return
-        
+
         VSAT.Method = (
             input(
                 f"{Color.White}[{Color.Orange} SET {Color.White}] {Color.DarkGreen} METHODS {Color.White} > {Color.Cyan}"
@@ -184,11 +186,20 @@ def Main():
         )
         if not VSAT.Method:
             VSAT.Method = "POST"
-        
+
         if VSAT.Method in [
-            "GET", "POST", "PUT", "HEAD", "DELETE", "PATCH",
-            "OPTIONS", "CONNECT", "TRACE", "RANDOM",
-            "H2GET", "H2POST",
+            "GET",
+            "POST",
+            "PUT",
+            "HEAD",
+            "DELETE",
+            "PATCH",
+            "OPTIONS",
+            "CONNECT",
+            "TRACE",
+            "RANDOM",
+            "H2GET",
+            "H2POST",
         ]:
             Protocol = (
                 input(
@@ -206,17 +217,17 @@ def Main():
                 .capitalize()
             )
             VSAT.JAProfile = JA3 if JA3 in ["Chrome", "Firefox", "Safari"] else "Chrome"
-        
+
         ThreadsInput = input(
             f"{Color.White}[{Color.Orange} SET {Color.White}] {Color.DarkGreen} THREADS {Color.White} [ Default 500 ] > {Color.Cyan}"
         ).strip()
         VSAT.Threads = int(ThreadsInput) if ThreadsInput else 500
-        
+
         DurationInput = input(
             f"{Color.White}[{Color.Orange} SET {Color.White}] {Color.DarkGreen} DURATION {Color.White} [ Seconds, Default 60 ] > {Color.Cyan}"
         ).strip()
         VSAT.Duration = int(DurationInput) if DurationInput else 60
-        
+
         ClusterInput = (
             input(
                 f"{Color.White}[{Color.Orange} SET {Color.White}] {Color.DarkGreen} CLUSTER MODE {Color.White} [ Y/N | Default N ] > {Color.Cyan}"
@@ -225,9 +236,9 @@ def Main():
             .lower()
         )
         VSAT.ClusterMode = ClusterInput == "y"
-        
+
         VSAT.Start()
-    
+
     except KeyboardInterrupt:
         Logging.Typewriter(
             f"{Color.Red}[{Color.Orange} INFO {Color.Red}] {Color.Orange} KEYBOARD INTERRUPTED{Color.Reset}"
