@@ -2,7 +2,7 @@
 
 ## Our Goal
 
-#### The ORBITAL-VSAT DDoS project provides a professional, technical environment for contributors. We prioritize technical excellence and respectful collaboration.
+#### The VSAT DDoS project provides a professional, technical environment for contributors. We prioritize technical excellence and respectful collaboration.
 
 ## Standards
 
