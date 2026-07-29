@@ -1,6 +1,0 @@
-requests
-pysocks
-colorama
-hpack
-aioquic
-aiohttp
