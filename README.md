@@ -199,7 +199,7 @@ The architecture separates workloads into multiple independent traffic engines r
 ```bash
 git clone --branch main https://github.com/MatrixTM26/VSAT.git
 cd VSAT
-go build -o vsat ./cmd/vsat/main.go
+go build -o vsat ./cmd/vsat
 chmod +x vsat
 ./vsat
 ```
@@ -210,12 +210,6 @@ chmod +x vsat
 
 - **Author:** [@MatrixTM26](https://github.com/MatrixTM26)
 - **License:** [AGPL-V3](./LICENSE)
-
-## <img src="https://cdn.simpleicons.org/githubsponsors/ff0000" width="18"> Support Me
-
-[![Ko-fi](https://img.shields.io/badge/KO--FI-000000?style=for-the-badge&logo=kofi&logoColor=fff707)](https://ko-fi.com/MatrixTM26)
-[![Trakteer](https://img.shields.io/badge/TRAKTEER-000000?style=for-the-badge&logo=buymeacoffee&logoColor=ff6a6a)](https://trakteer.id/MatrixTM26)
-[![PayPal](https://img.shields.io/badge/PAYPAL-000000?style=for-the-badge&logo=paypal&logoColor=0000ff)](https://paypal.me/TeukuMaulana)
 
 ---
 
