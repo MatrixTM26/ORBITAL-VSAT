@@ -2,7 +2,7 @@
 
 ---
 
-## &target; Version 1.0
+## Version 1.0.0
 
 #### Date: 2025, March 21
 
@@ -10,7 +10,7 @@
 
 ---
 
-## &target; Version 1.5
+## Version 1.0.5
 
 #### Date: 2025, September 19
 
@@ -19,20 +19,28 @@
 
 ---
 
-## &target; Version 2.0
+## Version 1.1.0
 
 #### Date: 2026, February 09
 
 - All Interfaces update
 - Adding multiprocessing thread method
 
-## &target; Version 3.0
+## Version 1.1.5
 
 #### Date: 2026, May 28
 
 - Fix HTTP2 & JA3Profiles structure
 - Project structure changes
 - Fix bug in H2GET method
+
+## Version 1.2.0
+
+#### Date: 2026, July 30
+
+- Change language from python to golang
+- Project structure changes
+- Improve processing speed and thread handle
 
 ---
 

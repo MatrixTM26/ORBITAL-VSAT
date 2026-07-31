@@ -194,6 +194,18 @@ The architecture separates workloads into multiple independent traffic engines r
 
 ---
 
+## <img src="https://cdn.simpleicons.org/archlinux/ff0000" width="18"> Installation and Usage
+
+```bash
+git clone --branch main https://github.com/MatrixTM26/VSAT.git
+cd VSAT
+go build -o vsat ./cmd/vsat/main.go
+chmod +x vsat
+./vsat
+```
+
+---
+
 ## <img src="https://cdn.simpleicons.org/github/ff0000" width="18"> Credit
 
 - **Author:** [@MatrixTM26](https://github.com/MatrixTM26)
