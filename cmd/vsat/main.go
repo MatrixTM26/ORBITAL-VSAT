@@ -22,7 +22,7 @@ func main() {
 
 	R, Err := Resolve(Args.Target)
 	if Err != nil {
-		fmt.Println(color.C("    ! "+Err.Error(), color.Red))
+		fmt.Println(color.C("  ! "+Err.Error(), color.Red))
 		os.Exit(1)
 	}
 
@@ -56,7 +56,7 @@ func main() {
 		len(UAs), len(Refs),
 	)
 
-	fmt.Println(color.C("    * launching vsat...", color.Cyan))
+	fmt.Println(color.C("  launching vsat...", color.Green))
 	fmt.Println()
 
 	StopMon := make(chan struct{})
@@ -84,7 +84,7 @@ func main() {
 	case <-Done:
 	case <-Sig:
 		fmt.Println()
-		fmt.Println(color.C("    ! interrupted", color.Yellow))
+		fmt.Println(color.C("  ! interrupted", color.Yellow))
 	}
 
 	close(StopMon)
