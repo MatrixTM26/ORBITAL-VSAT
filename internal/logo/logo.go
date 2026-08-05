@@ -25,8 +25,8 @@ func PrintBanner() {
 	fmt.Println(color.C(Banner, color.Red))
 	time.Sleep(100 * time.Millisecond)
 	ansi.TypewriterFast(color.C("	    Volumetric Socket Artillery", color.Red))
-	ansi.TypewriterFast(color.C("    Author  :  MatrixTM26", color.Dim))
-	ansi.TypewriterFast(color.C("    Version :  1.2.0", color.Dim))
+	ansi.TypewriterFast(color.C("  Author  :  MatrixTM26", color.Dim))
+	ansi.TypewriterFast(color.C("  Version :  1.2.0", color.Dim))
 	fmt.Println()
 }
 
