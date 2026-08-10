@@ -1,23 +1,19 @@
-BINARY  = demon
-CMD     = ./cmd/demon
+BINARY  = vsat
+CMD     = ./cmd/vsat
 OUT     = bin/$(BINARY)
 
 build:
+	@mkdir -p bin
 	go build -ldflags="-s -w" -o $(OUT) $(CMD)
 
-build-linux:
-	GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o $(OUT)-linux-amd64 $(CMD)
-
 build-arm:
-	GOOS=linux GOARCH=arm64 go build -ldflags="-s -w" -o $(OUT)-linux-arm64 $(CMD)
-
-tidy:
-	go mod tidy
-
-clean:
-	rm -rf bin/
+	@mkdir -p bin
+	GOOS=linux GOARCH=arm64 go build -ldflags="-s -w" -o $(OUT)-arm64 $(CMD)
 
 run:
 	go run $(CMD)
 
-.PHONY: build build-linux build-arm tidy clean run
+clean:
+	rm -rf bin/
+
+.PHONY: build build-arm run clean

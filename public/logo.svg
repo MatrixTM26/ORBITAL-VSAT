@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<defs>
+  <clipPath id="gc"><circle cx="256" cy="256" r="210"/></clipPath>
+  <radialGradient id="gg" cx="42%" cy="36%" r="68%">
+    <stop offset="0%"   stop-color="#131820"/>
+    <stop offset="100%" stop-color="#080b10"/>
+  </radialGradient>
+</defs>
+
+<!-- globe base -->
+<circle cx="256" cy="256" r="210" fill="url(#gg)"/>
+
+<!-- grid inside clip -->
+<g clip-path="url(#gc)" stroke="#1c2838" stroke-width="1" fill="none">
+  <!-- latitude ellipses (tilt 0.32) -->
+  <ellipse cx="256" cy="323" rx="210" ry="67"/>
+  <ellipse cx="256" cy="292" rx="196" ry="63"/>
+  <ellipse cx="256" cy="256" rx="210" ry="67"/>
+  <ellipse cx="256" cy="220" rx="196" ry="63"/>
+  <ellipse cx="256" cy="189" rx="155" ry="50"/>
+  <!-- meridians -->
+  <path d="M256,46 C310,150 310,362 256,466"/>
+  <path d="M256,46 C202,150 202,362 256,466"/>
+  <path d="M256,46 C370,100 390,256 370,412 Q320,460 256,466"/>
+  <path d="M256,46 C142,100 122,256 142,412 Q192,460 256,466"/>
+  <line x1="256" y1="46" x2="256" y2="466"/>
+</g>
+
+<!-- globe rim -->
+<circle cx="256" cy="256" r="210" fill="none" stroke="#2a3a4e" stroke-width="2"/>
+
+<!-- orbit ring - only visible outside globe -->
+<ellipse cx="256" cy="234" rx="248" ry="80"
+         fill="none" stroke="#3a4d60" stroke-width="2"
+         transform="rotate(-28 256 256)"
+         clip-path="url(#gc)"/>
+<!-- outer arc (outside globe, visible) -->
+<ellipse cx="256" cy="234" rx="248" ry="80"
+         fill="none" stroke="#3a4d60" stroke-width="2"
+         transform="rotate(-28 256 256)"/>
+<circle cx="256" cy="256" r="210" fill="url(#gg)" opacity="1"
+        style="mix-blend-mode:normal"/>
+<!-- re-draw orbit outside globe only via masking trick: draw full then cover with globe -->
+<!-- satellite position ~52deg on orbit -->
+<!-- orbit redrawn properly: outside=visible, inside=hidden by globe redraw below -->
+
+<!-- signal arcs (inside globe, clipped) -->
+<g clip-path="url(#gc)" fill="none">
+  <path d="M251,271 a30,30 0 0,0 -21,21"    stroke="#e02020" stroke-width="2" opacity="0.75" stroke-linecap="round"/>
+  <path d="M255,268 a52,52 0 0,0 -37,37"    stroke="#e02020" stroke-width="2" opacity="0.52" stroke-linecap="round"/>
+  <path d="M259,265 a74,74 0 0,0 -52,52"    stroke="#e02020" stroke-width="2" opacity="0.32" stroke-linecap="round"/>
+  <path d="M263,262 a96,96 0 0,0 -68,68"    stroke="#e02020" stroke-width="1.5" opacity="0.15" stroke-linecap="round"/>
+</g>
+
+<!-- redraw globe fill over inner orbit so orbit looks "behind" globe -->
+<circle cx="256" cy="256" r="209" fill="url(#gg)" clip-path="url(#gc)"/>
+<!-- redraw grid on top of that fill -->
+<g clip-path="url(#gc)" stroke="#1c2838" stroke-width="1" fill="none">
+  <ellipse cx="256" cy="323" rx="210" ry="67"/>
+  <ellipse cx="256" cy="292" rx="196" ry="63"/>
+  <ellipse cx="256" cy="256" rx="210" ry="67"/>
+  <ellipse cx="256" cy="220" rx="196" ry="63"/>
+  <ellipse cx="256" cy="189" rx="155" ry="50"/>
+  <path d="M256,46 C310,150 310,362 256,466"/>
+  <path d="M256,46 C202,150 202,362 256,466"/>
+  <path d="M256,46 C370,100 390,256 370,412 Q320,460 256,466"/>
+  <path d="M256,46 C142,100 122,256 142,412 Q192,460 256,466"/>
+  <line x1="256" y1="46" x2="256" y2="466"/>
+</g>
+<!-- signal arcs redraw on top of grid -->
+<g clip-path="url(#gc)" fill="none">
+  <path d="M251,271 a30,30 0 0,0 -21,21"    stroke="#e02020" stroke-width="2" opacity="0.80" stroke-linecap="round"/>
+  <path d="M255,268 a52,52 0 0,0 -37,37"    stroke="#e02020" stroke-width="2" opacity="0.55" stroke-linecap="round"/>
+  <path d="M259,265 a74,74 0 0,0 -52,52"    stroke="#e02020" stroke-width="2" opacity="0.33" stroke-linecap="round"/>
+  <path d="M263,262 a96,96 0 0,0 -68,68"    stroke="#e02020" stroke-width="1.5" opacity="0.16" stroke-linecap="round"/>
+</g>
+
+<!-- globe rim -->
+<circle cx="256" cy="256" r="210" fill="none" stroke="#2a3a4e" stroke-width="2"/>
+
+<!-- orbit ring outside globe -->
+<ellipse cx="256" cy="234" rx="248" ry="80"
+         fill="none" stroke="#3d5268" stroke-width="2"
+         transform="rotate(-28 256 256)"/>
+<!-- cover orbit inside globe -->
+<circle cx="256" cy="256" r="208" fill="#090c11"/>
+<!-- grid one more time on top -->
+<g clip-path="url(#gc)" stroke="#1e2b3a" stroke-width="1" fill="none">
+  <ellipse cx="256" cy="323" rx="210" ry="67"/>
+  <ellipse cx="256" cy="292" rx="196" ry="63"/>
+  <ellipse cx="256" cy="256" rx="210" ry="67"/>
+  <ellipse cx="256" cy="220" rx="196" ry="63"/>
+  <ellipse cx="256" cy="189" rx="155" ry="50"/>
+  <path d="M256,46 C310,150 310,362 256,466"/>
+  <path d="M256,46 C202,150 202,362 256,466"/>
+  <path d="M256,46 C370,100 390,256 370,412 Q320,460 256,466"/>
+  <path d="M256,46 C142,100 122,256 142,412 Q192,460 256,466"/>
+  <line x1="256" y1="46" x2="256" y2="466"/>
+</g>
+<!-- signal arcs final -->
+<g clip-path="url(#gc)" fill="none">
+  <path d="M251,271 a30,30 0 0,0 -21,21"  stroke="#e02020" stroke-width="2"   opacity="0.85" stroke-linecap="round"/>
+  <path d="M255,268 a52,52 0 0,0 -37,37"  stroke="#e02020" stroke-width="2"   opacity="0.58" stroke-linecap="round"/>
+  <path d="M259,265 a74,74 0 0,0 -52,52"  stroke="#e02020" stroke-width="2"   opacity="0.35" stroke-linecap="round"/>
+  <path d="M263,262 a96,96 0 0,0 -68,68"  stroke="#e02020" stroke-width="1.5" opacity="0.18" stroke-linecap="round"/>
+</g>
+<circle cx="256" cy="256" r="210" fill="none" stroke="#2a3a4e" stroke-width="2"/>
+
+<!-- satellite body (positioned at ~52deg on orbit, outside globe) -->
+<g transform="rotate(-28 256 256) translate(482 196)">
+  <rect x="-13" y="-8" width="26" height="16" rx="2" fill="#2c3340" stroke="#8090a0" stroke-width="1"/>
+  <!-- left panel -->
+  <rect x="-49" y="-5" width="33" height="10" rx="1" fill="#111a2e" stroke="#4466aa" stroke-width="1"/>
+  <line x1="-38" y1="-3" x2="-38" y2="3" stroke="#4466aa" stroke-width="1" opacity="0.6"/>
+  <line x1="-27" y1="-3" x2="-27" y2="3" stroke="#4466aa" stroke-width="1" opacity="0.6"/>
+  <!-- right panel -->
+  <rect x="16" y="-5" width="33" height="10" rx="1" fill="#111a2e" stroke="#4466aa" stroke-width="1"/>
+  <line x1="27" y1="-3" x2="27" y2="3" stroke="#4466aa" stroke-width="1" opacity="0.6"/>
+  <line x1="38" y1="-3" x2="38" y2="3" stroke="#4466aa" stroke-width="1" opacity="0.6"/>
+  <!-- beacon -->
+  <circle cx="0" cy="0" r="4" fill="#e02020" stroke="#ff5555" stroke-width="1"/>
+</g>
+
+<!-- VSAT text shadow -->
+<text x="258" y="320"
+      font-family="'DejaVu Sans',Arial,sans-serif" font-weight="700" font-size="68"
+      text-anchor="middle" fill="#330000" opacity="0.7">VSAT</text>
+<!-- VSAT text -->
+<text x="256" y="318"
+      font-family="'DejaVu Sans',Arial,sans-serif" font-weight="700" font-size="68"
+      text-anchor="middle" fill="#eeeef2">VSAT</text>
+
+<!-- subtitle -->
+<text x="256" y="337"
+      font-family="'DejaVu Sans',Arial,sans-serif" font-weight="700" font-size="13"
+      text-anchor="middle" fill="#cc1a1a">Volumetric Socket Artillery</text>
+</svg>
