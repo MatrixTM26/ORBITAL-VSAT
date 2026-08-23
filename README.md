@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="public/logo.svg" width="50%" />
+    
 </div>
 
 # VSAT DDOS
@@ -35,7 +35,7 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 # Features
 
-## <img src="https://cdn.simpleicons.org/icloud/ff0000" width="18"> Layer 7 Application Engine
+##  Layer 7 Application Engine
 
 ### Supported Methods
 
@@ -70,7 +70,7 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 ---
 
-## <img src="https://cdn.simpleicons.org/cisco/ff0000" width="18"> Layer 4 Transport Engine
+##  Layer 4 Transport Engine
 
 ### Supported Methods
 
@@ -100,7 +100,7 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 ---
 
-## <img src="https://cdn.simpleicons.org/internetexplorer/ff0000" width="18"> Layer 3 Network Engine
+##  Layer 3 Network Engine
 
 ### Supported Methods
 
@@ -117,7 +117,7 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 ---
 
-# <img src="https://cdn.simpleicons.org/letsencrypt/ff0000" width="18"> TLS JA3 Fingerprinting
+#  TLS JA3 Fingerprinting
 
 VSAT also supports TLS JA3 fingerprint simulation profiles.
 
@@ -151,7 +151,7 @@ The architecture separates workloads into multiple independent traffic engines r
 
 # Main Components
 
-## <img src="https://cdn.simpleicons.org/gnometerminal/ff0000" width="18"> Main Process
+##  Main Process
 
 - Runtime Initialization
 - Target Parsing
@@ -161,7 +161,7 @@ The architecture separates workloads into multiple independent traffic engines r
 
 ---
 
-## <img src="https://cdn.simpleicons.org/kubernetes/ff0000" width="18"> Cluster Mode
+##  Cluster Mode
 
 - Multiprocessing CPU Scaling
 - Parallel Worker Execution
@@ -170,7 +170,7 @@ The architecture separates workloads into multiple independent traffic engines r
 
 ---
 
-## <img src="https://cdn.simpleicons.org/buffer/ff0000" width="18"> Single Process Mode
+##  Single Process Mode
 
 - ThreadPoolExecutor
 - Thread-Based Workers
@@ -179,7 +179,7 @@ The architecture separates workloads into multiple independent traffic engines r
 
 ---
 
-## <img src="https://cdn.simpleicons.org/databricks/ff0000" width="18"> Shared Memory System
+##  Shared Memory System
 
 - Request Counters
 - Throughput Monitoring
@@ -188,7 +188,7 @@ The architecture separates workloads into multiple independent traffic engines r
 
 ---
 
-## <img src="https://cdn.simpleicons.org/proxmox/ff0000" width="18"> Traffic Executors
+##  Traffic Executors
 
 - Task Distribution
 - Protocol Execution
@@ -198,7 +198,7 @@ The architecture separates workloads into multiple independent traffic engines r
 
 ---
 
-## <img src="https://cdn.simpleicons.org/archlinux/ff0000" width="18"> Installation and Usage
+##  Installation and Usage
 
 ```bash
 git clone --branch main https://github.com/MatrixTM26/VSAT.git
@@ -210,7 +210,7 @@ chmod +x vsat
 
 ---
 
-## <img src="https://cdn.simpleicons.org/github/ff0000" width="18"> Credit
+##  Credit
 
 - **Author:** [@MatrixTM26](https://github.com/MatrixTM26)
 - **License:** [AGPL-V3](./LICENSE)
