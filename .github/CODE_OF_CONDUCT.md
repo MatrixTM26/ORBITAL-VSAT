@@ -1,4 +1,4 @@
-<h2 align="center">&target; Code of Conduct &target;</h2>
+<h2 align="center">CODE OF CONDUCT</h2>
 
 ## Our Goal
 
@@ -22,4 +22,16 @@ Unacceptable behavior includes:
 > [!IMPORTANT]
 > The project maintainers have sole authority to moderate discussions and contributions. Decisions are made at the maintainers' discretion to ensure the project remains a focused and productive environment. Reports can be sent to `anonymous999tom7@gmail.com`.
 
-<p align="center">&copy; 2023-2026 MatrixTM26</p>
+<p align="center">
+    &copy;
+    Copyright 2023-2026 
+    <a href="https://github.com/matrixtm26">@MatrixTM26</a>
+    &nbsp;
+    &middot;
+    &nbsp;
+    All right reserved.
+    <br>
+    Licensed under
+    &nbsp;
+    <a href="./LICENSE">AGPL-V3</a>
+</p>

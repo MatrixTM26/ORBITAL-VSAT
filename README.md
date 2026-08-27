@@ -8,14 +8,6 @@ Advanced Multi-Layer Network Stress Testing Framework
 
 ---
 
-![GO](https://img.shields.io/badge/GO-000000?style=for-the-badge&logo=go&logoColor=009ceb&labelColor=000000&color=03001a)
-![AGPL](https://img.shields.io/badge/AGPL-v3-000000?style=for-the-badge&logo=gnu&logoColor=ffffff&labelColor=000000&color=03001a)
-![Red Teaming](https://img.shields.io/badge/RED%20TEAMING-000000?style=for-the-badge&logo=keepassxc&logoColor=ff0000&labelColor=000000&color=03001a)
-![Cyber Security](https://img.shields.io/badge/CYBER%20SECURITY-000000?style=for-the-badge&logo=socket&logoColor=009ceb&labelColor=000000&color=03001a)
-![Networking](https://img.shields.io/badge/Networking-000000?style=for-the-badge&logo=cloudflare&logoColor=26ff7d&labelColor=000000&color=03001a)
-
----
-
 # Overview
 
 VSAT (**VOLUMETRIC SOCKET ARTILLERY**) is an advanced multi-layer network traffic generation framework designed for:
@@ -35,7 +27,7 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 # Features
 
-##  Layer 7 Application Engine
+## Layer 7 Application Engine
 
 ### Supported Methods
 
@@ -70,7 +62,7 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 ---
 
-##  Layer 4 Transport Engine
+## Layer 4 Transport Engine
 
 ### Supported Methods
 
@@ -100,7 +92,7 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 ---
 
-##  Layer 3 Network Engine
+## Layer 3 Network Engine
 
 ### Supported Methods
 
@@ -117,7 +109,7 @@ The framework combines Layer 3, Layer 4, and Layer 7 traffic engines into a unif
 
 ---
 
-#  TLS JA3 Fingerprinting
+# TLS JA3 Fingerprinting
 
 VSAT also supports TLS JA3 fingerprint simulation profiles.
 
@@ -151,7 +143,7 @@ The architecture separates workloads into multiple independent traffic engines r
 
 # Main Components
 
-##  Main Process
+## Main Process
 
 - Runtime Initialization
 - Target Parsing
@@ -161,7 +153,7 @@ The architecture separates workloads into multiple independent traffic engines r
 
 ---
 
-##  Cluster Mode
+## Cluster Mode
 
 - Multiprocessing CPU Scaling
 - Parallel Worker Execution
@@ -170,7 +162,7 @@ The architecture separates workloads into multiple independent traffic engines r
 
 ---
 
-##  Single Process Mode
+## Single Process Mode
 
 - ThreadPoolExecutor
 - Thread-Based Workers
@@ -179,7 +171,7 @@ The architecture separates workloads into multiple independent traffic engines r
 
 ---
 
-##  Shared Memory System
+## Shared Memory System
 
 - Request Counters
 - Throughput Monitoring
@@ -188,7 +180,7 @@ The architecture separates workloads into multiple independent traffic engines r
 
 ---
 
-##  Traffic Executors
+## Traffic Executors
 
 - Task Distribution
 - Protocol Execution
@@ -198,7 +190,7 @@ The architecture separates workloads into multiple independent traffic engines r
 
 ---
 
-##  Installation and Usage
+## Installation and Usage
 
 ```bash
 git clone --branch main https://github.com/MatrixTM26/VSAT.git
@@ -210,11 +202,16 @@ chmod +x vsat
 
 ---
 
-##  Credit
-
-- **Author:** [@MatrixTM26](https://github.com/MatrixTM26)
-- **License:** [AGPL-V3](./LICENSE)
-
----
-
-<p align="center">Copyright &copy;2023-2026 MatrixTM26 &middot; All Rights Reserved</p>
+<p align="center">
+    &copy;
+    Copyright 2023-2026 
+    <a href="https://github.com/matrixtm26">@MatrixTM26</a>
+    &nbsp;
+    &middot;
+    &nbsp;
+    All right reserved.
+    <br>
+    Licensed under
+    &nbsp;
+    <a href="./LICENSE">AGPL-V3</a>
+</p>
